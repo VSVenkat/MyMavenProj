@@ -5,16 +5,18 @@
   <artifactId>SamplePrg</artifactId>
   <packaging>jar</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>SamplePrg</name>
-  <url>http://maven.apache.org</url>
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
+  
+  <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
+<dependency>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-jar-plugin</artifactId>
+    <version>3.1.0</version>
+</dependency>
+  
+  
   </dependencies>
+  
   <build>
     <plugins>
       <plugin>
@@ -27,11 +29,13 @@
             <manifest>
               <addClasspath>true</addClasspath>
               <classpathPrefix>lib/</classpathPrefix>
-              <mainClass>com.mycompany.app.App</mainClass>
+              <mainClass>com.mymaven.MyFirstPrg</mainClass>
             </manifest>
           </archive>
         </configuration>
       </plugin>
     </plugins>
   </build>
+  
+  
 </project>

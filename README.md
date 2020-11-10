@@ -72,14 +72,68 @@ public class PriterThread extends Thread{
 }
 
 public class PrinterDemo{
-  Printer p = new Printer();
-  PrinterThread t1 = new PrinterThread(p, "thread1");
-  PrinterThread t2 = new PrinterThread(p, "thread2");
-  t1.start();
-  t2.start();
+  public static void main(String args[]){
+    Printer p = new Printer();
+    PrinterThread t1 = new PrinterThread(p, "thread1");
+    PrinterThread t2 = new PrinterThread(p, "thread2");
+    t1.start();
+    t2.start();
+  }
 }
 ```
 
+###### Synchronized block
+
+Synchronized block places lock for the specified block where as Synchronized method places lock for the entire method.
+###### Synchronized statements 
+Synchronized statements are executed only after aquiring lock for the object or the class referenced in the synchronized statement
+
+Example : 
+
+
+```
+class Bus{
+  private int seats;
+  Bus(){
+    seats = 10;
+  }
+  synchronized void reverse(int n){
+    if(seats < n){
+      System.out.println("Seats are not available");
+    }else{
+      seats = seats - 1;
+      System.out.println("Seats are avaiable");
+    }
+  }
+}
+class BusThread extends Thread{
+  Bus b;
+  int n;
+  BustThread(Bus b, int n){
+    this.b = b;
+    this.n = n;
+  }
+  public void run(){
+    b.reverse(n);
+  }
+}
+public class BusDemo{
+  public static void main(String args[]){
+    Bus b = new Bus();
+    
+    BusThread t1 = new BusThread(b,2);
+    BusThread t2 = new BusThread(b,2);
+    t1.start();
+    t2.start();
+  }
+}
+```
+Note : 
+- If a method is declared with modifier as synchronized then that method is executed squencially by multiple threads.
+- when the run() method is calling the synchronized method then lock value becomes true and when the run method returns then the lock value becomes false
+- If we declare block of statements as synchronized then only those block of statements will be executed sequencially.
+- If method is static than lock is obtained on the class
+- If method is instance method then lock is obtained on the object.
 
 
 

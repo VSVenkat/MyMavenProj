@@ -24,6 +24,16 @@ An application which performs only one operation at a time is single task applic
 2. Increases the efficiency of the program/application.
 3. Sharing resources.
 
+###### Synchronized methods
+
+1. Synchronized is a modifier or a keyword used to define method
+2. A method which is defined using the synchronized keyword is called synchronized method
+3. If a thread invoke synchronized method it will aquire object lock.
+4. It allows to develop thread safe applications.
+
+
+
+
 ###### What is process?
 
 - A process is an instance of program.
